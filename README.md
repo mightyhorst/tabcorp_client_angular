@@ -79,13 +79,13 @@ Also pictured is the backend architecture, available at this [repo](https://gith
 *Spinakker by Netflix* is used as our Continuous Deployment pipelines. 
 
 ### Spinnaker
-Pipelines available (online here)[http://spinnaker-deck.tabcorp.kitset.io/#/applications/tabcorpangular]
-!(Spinnaker pipeline)[https://ibb.co/8c7MYvd]
-!(Spinnaker pipeline)[https://ibb.co/2kvx8rG]
+Pipelines available [online here](http://spinnaker-deck.tabcorp.kitset.io/#/applications/tabcorpangular)
+![Spinnaker pipeline](https://ibb.co/8c7MYvd)
+![Spinnaker pipeline](https://ibb.co/2kvx8rG)
 
 ### Traefik 
-Reverse Proxy available (online here)[http://traefik.tabcorp.kitset.io/dashboard/status]
-!(Traefik)[https://ibb.co/ChYrrhm]
+Reverse Proxy available [online here](http://traefik.tabcorp.kitset.io/dashboard/status)
+![Traefik](https://ibb.co/ChYrrhm)
 
 
 
