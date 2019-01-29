@@ -1,0 +1,120 @@
+<layout-header
+	[title]="layout.title"
+	[imgSrc]="layout.imgSrc"
+	[crumbs]="layout.crumbs"></layout-header> 
+
+
+<section id="book-create">
+
+    <form [formGroup]="createBookForm" 
+    	(ngSubmit)="onSubmit()">
+        
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~
+        *
+        *
+        * Title
+        *
+        *
+        * -->
+        <div class="row">
+            <label>
+            	Title
+            </label>
+            
+            <input 
+                type="text" 
+            	formControlName="title" 
+            	[ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+                />
+            
+            <div 
+                *ngIf="submitted && f.title.errors" 
+            	class="invalid">
+
+                <div *ngIf="f.title.errors.required">
+                	Title is required
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~
+        *
+        *
+        * Category
+        *
+        *
+        * -->
+        <div class="row">
+            <label>
+            	Category
+            </label>
+            
+            <select formControlName="category">
+            	<option 
+                    *ngFor="let cat of listOfCats"
+                    [value]="cat">
+                    {{cat}}
+            	</option>
+            </select>
+        </div>
+
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~
+        *
+        *
+        * Description
+        *
+        *
+        * -->
+        <div class="row">
+
+            <label>
+            	Description
+            </label>
+
+            <textarea 
+                type="text" 
+            	formControlName="description" 
+            	[ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+
+            <div *ngIf="submitted && f.description.errors" 
+            	class="invalid">
+
+                <div *ngIf="f.description.errors.required">
+                	Description is required
+                </div>
+
+            </div>
+        </div>
+
+        
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~
+        *
+        *
+        * Submit
+        *
+        *
+        * -->
+        <div class="row">
+
+            <button [disabled]="!createBookForm.valid">
+
+            	<span *ngIf="createBookForm.valid"> 
+            		Add Book 
+            	</span>
+            	<span *ngIf="!createBookForm.valid">  
+            		Please fill in the form 
+            	</span>
+
+            </button>
+        </div>
+
+    </form>
+
+</section>

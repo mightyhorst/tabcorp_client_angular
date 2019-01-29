@@ -1,0 +1,83 @@
+#book-create {
+    display: block;
+    height: calc(100% - 77px);
+    top: 77px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 10%;
+}
+
+form {
+    display: block;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    min-height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    display: block;
+    width: 50%;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    font-family: helvetica neue;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 2px;
+    background: white !important;
+    /*text-indent: 5px;*/
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+textarea{
+    padding-top: 5px;
+    min-height: 80px;
+}
+    input:focus, textarea:focus {
+        outline: none;
+        border: 1px solid #0088ff;
+    }
+
+label {
+    display: block;
+    width: 30%;
+    margin-left: 10%;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    font-family: helvetica neue;
+}
+
+input:-internal-autofill-selected {
+    background: #fff !important;
+}
+
+button {
+    margin-left: 10%;
+    width: 80%;
+    height: 45px;
+    line-height: 45px;
+    background: #383f45;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 2px;
+    color: white;
+    font-family: helvetica neue;
+    font-size: 13px;
+}
+
+button[disabled]{
+    opacity: .2;
+}
+
+.invalid{
+    display: block;
+    box-sizing: border-box;
+    padding: 5px; 
+    font-size: 12px; 
+    border-radius: 0 2px 2px 2px; 
+    border: 1px solid rgba(200,0,0,.8);
+    background: rgb(237, 166, 169);
+}
