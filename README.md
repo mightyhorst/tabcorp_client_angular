@@ -42,8 +42,7 @@ Be sure to run `compodoc -p src/tsconfig.app.json -d docs/` to generate docs.
 
 # Architecture 
 
-<!-- ![Architecture](https://mitni455.github.io/tabcorp-client-angular/images/architecture.png) -->
-![Architecture](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/architecture.png)
+![CI/CD Architecture](https://i.ibb.co/CJxvzGP/cicd.png)
 
 Also pictured is the backend architecture, available at this [repo](https://github.com/mitni455/tabcorp_microservice_flickr) 
 
@@ -76,28 +75,32 @@ Also pictured is the backend architecture, available at this [repo](https://gith
 
 # CI/CD
 
-<!-- ![cicd](https://mitni455.github.io/tabcorp-client-angular/images/ci_cd.png) -->
-<!-- ![cicd](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ci_cd.png) -->
-<!-- ![ci/cd client](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ci_cd_angular.png) -->
-![ci/cd client](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ci_cd_client.png)
+*TravisCi* is used as our Continuous Integration service. 
+*Spinakker by Netflix* is used as our Continuous Deployment pipelines. 
 
-![ci/cd backend](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ci_cd_backend.png)
+### Spinnaker
+Pipelines available (online here)[http://spinnaker-deck.tabcorp.kitset.io/#/applications/tabcorpangular]
+!(Spinnaker pipeline)[https://ibb.co/8c7MYvd]
+!(Spinnaker pipeline)[https://ibb.co/2kvx8rG]
 
-Also pictured is the backend architecture, available at this [repo](https://github.com/mitni455/tabcorp_microservice_flickr) 
+### Traefik 
+Reverse Proxy available (online here)[http://traefik.tabcorp.kitset.io/dashboard/status]
+!(Traefik)[https://ibb.co/ChYrrhm]
+
 
 
 
 
 ### Environments
-| Environment | Description |
-| -------- | ----------- |
-| `Test` | Because this is AWS we need to deploy to a test environment online before we can run the integration tests. If these pass then the *master* branch will be deployed to the staging environment.  |
-| `Staging` | The *master* branch will be deployed to the *staging* environment after all tests pass on the *test* environment.  |
-| `Production` | The *production* branch will be deployed to the *production* environment after all tests pass on the *test* environment. This is not setup for our simple example |
+| Environment | Status |Description |
+| -------- | ---------- | ----------- |
+| `Test` | @todo | we need to deploy to a test environment online before we can run the integration tests. If these pass then the *master* branch will be deployed to the staging environment.  |
+| `Staging` | @todo | The *master* branch will be deployed to the *staging* environment after all tests pass on the *test* environment.  |
+| `Production` | @todo | The *production* branch will be deployed to the *production* environment after all tests pass on the *test* environment. This is not setup for our simple example |
 
 
-### Pipeline
-*TravisCi* is used as our Continuous Integration service. 
+
+
 
 
 # Tests - Backend
