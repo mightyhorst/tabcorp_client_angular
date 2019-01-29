@@ -14,22 +14,16 @@ export class SidebarComponent implements OnInit {
 
 	sidebarItems: SidebarItem[] = [
 		{
-			title: 'All Flikr Photos',
+			title: 'All Books',
 			imgSrc: '/assets/img/stag_lines_w.png',
-			path: '/photo',
+			path: '/book',
 			icon: 'fa fa-chevron-right', 
 			isSelected: true
 		},
 		{
-			title: 'Search by Tags',
+			title: 'Add a Book',
 			imgSrc: '/assets/img/dragon_lines_w.png',
 			path: '/photo/search',
-			icon: 'fa fa-chevron-right'
-		},
-		{
-			title: 'Favourites', 
-			imgSrc: '/assets/img/flower_lines_w.png',
-			path: '/photo/favourites',
 			icon: 'fa fa-chevron-right'
 		}
 	];
