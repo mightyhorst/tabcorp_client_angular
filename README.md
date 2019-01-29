@@ -1,7 +1,7 @@
 # Quick Links 
 * [Online Demo](http://tabcorp.ap-southeast-2.elasticbeanstalk.com)
 * [Client Documentation](https://mitni455.github.io/tabcorp-client-angular/overview.html)
-* [Backend Documentation](https://app.swaggerhub.com/apis/kitset-io/tabcorp-flickr-api/1.0.0)
+* [Backend Documentation](https://app.swaggerhub.com/apis/kitset-io/tabcorp-microservice-book-api/1.0.0)
 <!-- * [Backend Repo](https://github.com/mitni455/tabcorp_microservice_flickr) -->
 
 # Screenshots
@@ -66,7 +66,7 @@ Also pictured is the backend architecture, available at this [repo](https://gith
 | -------- | ----------- |
 | `Travis CI` | Continuous Integration and Deployment |
 | `DockerHub` | Docker hub is used to deploy Docker images to ElasticBeanstalk |
-| `SwaggerHub` | SwaggerHub is used to host the API documentation [here](https://app.swaggerhub.com/apis/kitset-io/tabcorp-flickr-api/1.0.0)|
+| `SwaggerHub` | SwaggerHub is used to host the API documentation [here](https://app.swaggerhub.com/apis/kitset-io/tabcorp-microservice-book-api/1.0.0)|
 | `CompoDoc` | Angular Documentation tool |
 | `Agile` | Github Projects |
 | [`BackstopJS 3`](https://garris.github.io/BackstopJS/) | Visual regression testing for responsive CSS |
@@ -101,10 +101,10 @@ Also pictured is the backend architecture, available at this [repo](https://gith
 
 
 # Tests - Backend
-The api documentation is available on [SwaggerHub here](https://app.swaggerhub.com/apis/kitset-io/tabcorp-flickr-api/1.0.0)
+The api documentation is available on [SwaggerHub here](https://app.swaggerhub.com/apis/kitset-io/tabcorp-microservice-book-api/1.0.0)
 
 ![swagger](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ss_swagger.png)
-available here: [https://app.swaggerhub.com/apis/kitset-io/tabcorp-flickr-api/1.0.0](https://app.swaggerhub.com/apis/kitset-io/tabcorp-flickr-api/1.0.0)
+available here: [https://app.swaggerhub.com/apis/kitset-io/tabcorp-microservice-book-api/1.0.0](https://app.swaggerhub.com/apis/kitset-io/tabcorp-microservice-book-api/1.0.0)
 
 ##### BDD - Backend 
 The integration tests are written in `mocha` available from the backend repo. 
