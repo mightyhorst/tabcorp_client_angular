@@ -31,18 +31,19 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarItemComponent } from './sidebar/sidebar-item/sidebar-item.component';
 import { ContainerComponent } from './container/container.component';
 
-/**
+/**@todo
 *
 * Components
 * Auth
 * 
-**/
+
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { ConfirmEmailComponent } from './auth/confirm-email/confirm-email.component';
 import { ProfileComponent } from './auth/profile/profile.component';
+**/
 
 describe('AppComponent', () => {
     beforeEach(async(() => {
@@ -73,11 +74,11 @@ describe('AppComponent', () => {
         expect(app).toBeTruthy();
     }));
 
-    it(`should have as title 'Flickr Sample App'`, async(() => {
+    it(`should have as title 'TabCorp Book App'`, async(() => {
         
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual('Flickr Sample App');
+        expect(app.title).toEqual('TabCorp Book App');
 
     }));
 
