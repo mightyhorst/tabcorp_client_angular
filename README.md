@@ -80,12 +80,12 @@ Also pictured is the backend architecture, available at this [repo](https://gith
 
 ### Spinnaker
 Pipelines available [online here](http://spinnaker-deck.tabcorp.kitset.io/#/applications/tabcorpangular)
-![Spinnaker pipeline](https://ibb.co/8c7MYvd)
-![Spinnaker pipeline](https://ibb.co/2kvx8rG)
+![Spinnaker pipeline](https://i.ibb.co/m8cJNZX/Screen-Shot-2019-01-30-at-1-11-43-AM.png)
+![Spinnaker pipeline](https://i.ibb.co/z4Xp8gq/Screen-Shot-2019-01-30-at-1-12-17-AM.png)
 
 ### Traefik 
 Reverse Proxy available [online here](http://traefik.tabcorp.kitset.io/dashboard/status)
-![Traefik](https://ibb.co/ChYrrhm)
+![Traefik](https://i.ibb.co/hD4qqDL/Screen-Shot-2019-01-30-at-1-12-23-AM.png)
 
 
 
