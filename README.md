@@ -17,9 +17,9 @@ Save your favourites to a pin board
 This is far from finished, it should show the authour details too
 ![Favourites Screenshot](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ss_details3.png)
 
-##### Public Flikr Feed Page 
+##### CI/CD Pipeline
 Browse the public feed for inspiration
-![Public Flikr Feed Screenshot](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/screenshot3.png)
+![CI/CD Architecture](https://i.ibb.co/CJxvzGP/cicd.png)
 
 # Quick Start 
 Install and run 
