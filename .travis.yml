@@ -1,28 +1,40 @@
+dist: trusty
+sudo: false
+ 
 language: node_js
-
 node_js:
-  - "9"
+  - "8"
 
 services:
   - docker
 
-# env:
-#   global:
-  
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+ 
+cache:
+  directories:
+     - ./node_modules
 
 before_install:
-  - npm i -g bower npm@latest @angular/cli nyc
+ - npm i -g bower npm@latest @angular/cli nyc
 
 install:
-  - npm i 
+  - npm install
+ 
+script:
+  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+  - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 
-script: 
-  - npm test 
-  # - npm run lint
 
 deploy:
   provider: script
   script: npm run deploy
   on:
     branch: master  
+
+
   
