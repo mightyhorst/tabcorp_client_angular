@@ -22,7 +22,7 @@ export class BookListComponent implements OnInit {
 	**/
 	layout = {
 		title: 'Book List',
-		imgSrc: 'https://img.icons8.com/ios/50/000000/book-shelf.png',
+		imgSrc: '/assets/img/dragon_lines.png',
 		crumbs: [
 			{  
 				path: '/book',

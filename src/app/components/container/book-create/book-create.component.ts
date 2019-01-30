@@ -21,7 +21,7 @@ export class BookCreateComponent implements OnInit {
 	**/
 	layout = {
 		title: 'Add Book',
-		imgSrc: 'https://img.icons8.com/ios/50/000000/read.png',
+		imgSrc: '/assets/img/wolf_lines.png',
 		crumbs: [
 			{  
 				path: '/book',
