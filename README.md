@@ -31,8 +31,8 @@ Install and run
 4. Serve locally: `ng serve`
 
 or with docker:
-* `docker build -t tabcorp-flickr-app .`
-* `docker run -d -p 8080:8080 --name tabcorp-flickr-app tabcorp-flickr-app`
+* `docker build -t tabcorp_client_angular .`
+* `docker run -d -p 8080:8080 --name tabcorp_client_angular tabcorp_client_angular`
 
 Please raise a `pull request` for any developments, and use the `issues` for bugs and feature requests. 
 
