@@ -1,8 +1,7 @@
 [![Build Status](https://travis-ci.org/mitni455/tabcorp_client_angular.svg?branch=master)](https://travis-ci.org/mitni455/tabcorp_client_angular)
 
 # Quick Links 
-* [Online Demo](http://tabcorp.ap-southeast-2.elasticbeanstalk.com)
-* [Client Documentation](https://mitni455.github.io/tabcorp-client-angular/overview.html)
+* [Online Demo](http://tabcorp-angular.tabcorp.kitset.io)
 * [Backend Microservice API](https://github.com/mitni455/tabcorp_microservice_books)
 
 
