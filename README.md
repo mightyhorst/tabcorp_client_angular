@@ -3,8 +3,8 @@
 # Quick Links 
 * [Online Demo](http://tabcorp.ap-southeast-2.elasticbeanstalk.com)
 * [Client Documentation](https://mitni455.github.io/tabcorp-client-angular/overview.html)
-* [Backend Documentation](https://app.swaggerhub.com/apis/kitset-io/tabcorp-microservice-book-api/1.0.0)
-<!-- * [Backend Repo](https://github.com/mitni455/tabcorp_microservice_flickr) -->
+* [Backend Microservice API](https://github.com/mitni455/tabcorp_microservice_books)
+
 
 # Screenshots
 ##### Books list page
