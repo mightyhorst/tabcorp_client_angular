@@ -22,8 +22,8 @@ RUN cd src/assets && bower install --allow-root
 RUN npm install 
 
 # Build the angular app for serving 
-# RUN ./node_modules/.bin/ng build --prod
-RUN ng build
+RUN ng build --prod
+# RUN npm run build
 
 
 EXPOSE 8888

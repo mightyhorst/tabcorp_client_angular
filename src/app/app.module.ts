@@ -35,14 +35,14 @@ import { ContainerComponent } from '@components/container/container.component';
 /**@todo 
 * Components
 * IAM 
-*
+**/
 import { AuthComponent } from '@components/auth/auth.component';
 import { LoginComponent } from '@components/auth/login/login.component';
 import { RegisterComponent } from '@components/auth/register/register.component';
 import { ForgotPasswordComponent } from '@components/auth/forgot-password/forgot-password.component';
 import { ConfirmEmailComponent } from '@components/auth/confirm-email/confirm-email.component';
 import { ProfileComponent } from '@components/auth/profile/profile.component';
-**/
+
 
 /**
 * Components
@@ -91,19 +91,19 @@ import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
         /**
         * Pipes
         **/
-        EnumToArrayPipe
+        EnumToArrayPipe,
 
         /**@todo
         *
         * Components - Authentication
-        **
+        **/
         AuthComponent,
         LoginComponent,
         RegisterComponent,
         ForgotPasswordComponent,
         ConfirmEmailComponent,
-        ProfileComponent
-        **/
+        ProfileComponent,
+        
     ],
     imports: [
         BrowserModule,
