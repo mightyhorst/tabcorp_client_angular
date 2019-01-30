@@ -28,10 +28,11 @@ export class BookApiService {
 	constructor(private http: HttpClient) { 
 		if (isDevMode()) {
 	      	console.log('👋 Development!');
+	      	console.log('😀 apiUrl: '+this.apiUrl);
 	    } else {
 	      	console.log('💪 Production!');
 	    }
-	    console.log('😀 apiUrl: '+this.apiUrl);
+	    
 
 	    this.headers = new HttpHeaders({
             'Accept': 'application/json',

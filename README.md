@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mitni455/tabcorp_client_angular.svg?branch=master)](https://travis-ci.org/mitni455/tabcorp_client_angular)
+
 # Quick Links 
 * [Online Demo](http://tabcorp.ap-southeast-2.elasticbeanstalk.com)
 * [Client Documentation](https://mitni455.github.io/tabcorp-client-angular/overview.html)
@@ -17,9 +19,6 @@ Save your favourites to a pin board
 This is far from finished, it should show the authour details too
 ![Favourites Screenshot](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ss_details3.png)
 
-##### CI/CD Pipeline
-Browse the public feed for inspiration
-![CI/CD Architecture](https://i.ibb.co/CJxvzGP/cicd.png)
 
 # Quick Start 
 Install and run 
@@ -52,19 +51,39 @@ Also pictured is the backend architecture, available at this [repo](https://gith
 | `ExpressJs` | The app is served by *ExpressJs*. We could also use this as a simple resourceful API too, however we have chosen to use microservices on *Lambda*   |
 | `Docker` | *Docker* is probably overkill here, but is used as a simple container to quickly setup the Angular/Express app on all environments (dev/test/staging)  |
 
+
+#### AKS Kubernetes Architecture 
+| Platform | Description |
+| -------- | ----------- |
+| `Traefik` | Reverse proxy engine for Kubernetes |
+| `ExpressJs` | Microservices Book API  |
+| `Docker` | Container  |
+| `Kubernetes` | Cloud as a Service |
+| `Sequelize` | ORM for  NodeJs  |
+| `MySQL` | Simple Database   |
+
+
+#### Alternative - AWS Architecture 
+Alternatively I would use this stack on AWS 
+
 | Platform | Description |
 | -------- | ----------- |
 | `Beanstalk` | Angular App is served using *ExpressJs* inside a *Docker* container |
 | `AWS Gateway` | The Angular App calls the AWS Gateway  |
-| `Lambda` | A serveless microservice for handling Flickr and user management  |
+| `Lambda` | A serveless microservice for handling data and user management  |
 | `Cognito` | *not used* Used for User IAM and AAA  |
-| `DynamoDb` | Used for saving user favourites.  |
+| `DynamoDb` | Used for NoSQL DB   |
 
+
+| CI/CD | Description |
+| -------- | ----------- |
+| `Travis CI` | Continuous Integration and Deployment |
+| `DockerHub` | Docker hub is used to host Docker images  |
+| `Spinnaker` | CD for Kubernetes   |
+| `AKS` | Container services for Kubernetes on Azure   |
 
 | Tools | Description |
 | -------- | ----------- |
-| `Travis CI` | Continuous Integration and Deployment |
-| `DockerHub` | Docker hub is used to deploy Docker images to ElasticBeanstalk |
 | `SwaggerHub` | SwaggerHub is used to host the API documentation [here](https://app.swaggerhub.com/apis/kitset-io/tabcorp-microservice-book-api/1.0.0)|
 | `CompoDoc` | Angular Documentation tool |
 | `Agile` | Github Projects |
@@ -124,7 +143,6 @@ The front end tests are split into `e2e tests`, `unit tests` and `integration te
 # Development Lifecycle
 Depending on the client tradeoffs between time, cost and quality I would follow the following development lifecycle including agile approach, extreme programming and BDD. 
 
-<!-- ![Architecture](https://mitni455.github.io/tabcorp-client-angular/images/dev-lifecycle.png) -->
 ![Architecture](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/dev-lifecycle.png)
 
 Depending on the project, I typically have stagered design + development sprints 
@@ -134,14 +152,14 @@ Depending on the project, I typically have stagered design + development sprints
 | Design      | `Plan > UX > UI > Backlog` | 
 | Development | `Plan > User Stories > Test > Code > Deploy ` | 
 
-<!-- 
+
 | SCRUM | Time | Phase Description |
 | ------| ---- | ----------------- | 
 | `Plan` | 4 hours | Refine and reorder `product backlog`  and `planning poker` |  
 | `Standup` | 20 mins | Refine and reorder `product backlog`  and `planning poker` |  
 | `Review` | 1 hour | Refine and reorder `product backlog`  and `planning poker` |  
 | `Retrospective` | 30 mins | Refine and reorder `product backlog`  and `planning poker` |  
--->
+
 
 | User Story | Lifecycle |
 | --------- | ------- | 
@@ -173,10 +191,10 @@ The *epics* for this sprint include:
 
 | ID 		| Epic 		|
 | --------- | --------- | 
-| `Epic 1:` | As a user, I want to view the public feed from Flickr, so that I can save my favourites |
+| `Epic 1:` | As a user, I want to view the public feed from Book, so that I can save my favourites |
 | `Epic 2:` |  As a user, I want to search for topics from the flickr feed, so that I can save time looking for topics I like |
 | `Epic 3:` |  As a user, I want to save my favourites, so that I can view them quickly when I return to the app |
-| `Epic 4:` | As a user, I want a simple sidebar, so that I can navigate between Flickr, searches and favourites |
+| `Epic 4:` | As a user, I want a simple sidebar, so that I can navigate between Book, searches and favourites |
 
 
 ### UX and UI 
@@ -188,8 +206,8 @@ These epics can be further broken down into the following *user stories* by crea
 
 | Parent ID | UI Epic |
 | --------- | ------- | 
-| `Epic 1:`  | As a user, I want a Flickr list page |
-| `Epic 1:`  | As a user, I want a Flickr details page |
+| `Epic 1:`  | As a user, I want a Book list page |
+| `Epic 1:`  | As a user, I want a Book details page |
 | `Epic 2:`  | As a user, I want a search page |
 | `Epic 3:` | As a user, I want a favourites page |
 
@@ -199,15 +217,15 @@ These epics can be further broken down into the following *user stories* by crea
 Following *BDD* we already have enough for some *e2e tests* using protractor: 
 
 
-`As a user, I want a Flickr list page`  
+`As a user, I want a Book list page`  
 ```
 * Go to the home page at '/'
-* Expect to see 'Flickr Angular App'
+* Expect to see 'Book Angular App'
 * Expect the 'All Photos' sidebar to be active 
 ```
 
 
-`As a user, I want a Flickr details page` 
+`As a user, I want a Book details page` 
 ```
 * Go to the details page at /flickr/{mockImageId}
 * Expect to see the title 'Mock Title'
@@ -246,14 +264,14 @@ A `User Story` as issues
  -->
 
 # Components 
-`As a user, I want a Flickr list page`  
-* Flickr List component
-* Flickr Tile component
+`As a user, I want a Book list page`  
+* Book List component
+* Book Tile component
 
-###### BDD/TDD - Flickr List component
+###### BDD/TDD - Book List component
 ```
 * should create the page
-* should show tiles for mock FlickrImages models 
+* should show tiles for mock BookImages models 
 
 * Visual tests - should look good on mobile portrait 
 * Visual tests - should look good on mobile landscape
@@ -263,7 +281,7 @@ A `User Story` as issues
 * Visual tests - should look good on desktop
 ```
 
-###### BDD/TDD - Flickr Tile component
+###### BDD/TDD - Book Tile component
 ``` 
 * should be created 
 * should show loading gif 
@@ -274,7 +292,7 @@ A `User Story` as issues
 * should open the flickr details page on click 
 * should have favourite button 
 * favourite button should be off by default 
-* favourite button should be on when Flickr Image model is saved 
+* favourite button should be on when Book Image model is saved 
 
 * Visual tests - should look good on mobile portrait 
 * Visual tests - should look good on mobile landscape
@@ -284,11 +302,11 @@ A `User Story` as issues
 * Visual tests - should look good on desktop
 ```
 
-`As a user, I want a Flickr details page` 
-* Flickr details component
+`As a user, I want a Book details page` 
+* Book details component
 
 
-###### BDD/TDD - Flickr details component
+###### BDD/TDD - Book details component
 ```
 * should be created 
 * should show Image 
