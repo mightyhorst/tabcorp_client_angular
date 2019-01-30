@@ -6,6 +6,7 @@ header {
     padding: 0 86px;
     width: 100%;
     position: fixed;
+    position: relative;
     background: rgb(253, 253, 253);
     top: 0px;
     z-index: 2;

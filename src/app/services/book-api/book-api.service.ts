@@ -16,11 +16,12 @@ import { environment } from '@env';
 *
 **/
 import { BookModel, BookCategory } from '@models/book.model';
+import { BookContract, BookApiGetAllContract, BookApiCreateContract} from '@contracts/book.contract';
 
 @Injectable()
 export class BookApiService {
 
-	private apiUrl : string = environment.apiUrl;
+	private apiUrl : string = `${environment.apiUrl}book/`;
     private headers : HttpHeaders;
     private queryParams : any;
 
@@ -32,7 +33,6 @@ export class BookApiService {
 	    }
 	    console.log('😀 apiUrl: '+this.apiUrl);
 
-
 	    this.headers = new HttpHeaders({
             'Accept': 'application/json',
             'Content-Type': 'application/json',                
@@ -40,61 +40,49 @@ export class BookApiService {
 	}
 
 	/**
+	* Get All Books
 	*
-	* Get All Photos   
-	* represents a photo's meta data used by the Flickr List and Details components 
-	* it is created by passing a IFlickrApiItem from the flickr api
-	* I do this so that each response has an interface that can be tarnsformed into a model even if the mappings aren't one to one
+	* @todo 
 	*
-	* Optional Search terms - If tags are sent, then we will search photos by tags to filter the search critreria by to our backend, which in turn will query the flickr public api 
-	*
-	* @todo pipes make this more or less redundant, so in the future I will have response models that can self validate using json schema library
-	*
-	* params {} searchTerms? optional - tags to narrow the search 
-	* returns {Observable<FlickrPhoto[]>} an observable with an array of FlickrPhotos
+	* @param {} searchTerms? optional - tags to narrow the search 
+	* @returns {Observable<FlickrPhoto[]>} an observable with an array of FlickrPhotos
 	**/
-	/*getAll(searchTerms?: string): Observable<FlickrPhoto[]>{
+	getAll(): Observable<BookModel[]>{
 
-		var url = this.apiUrl+'photos';
-
-		if(searchTerms !== undefined){
-			url += '?tags='+searchTerms.split(/[ ,]+/).join(',');
-		}
-
-		return this.http.get<IFlickrApiContract>(            
-				url, 
-            	{  
-                	headers : this.headers
-            	}
+		return this.http.get<BookApiGetAllContract>(            
+				this.apiUrl, 
+            	{ headers : this.headers }
 			).pipe(
-				map(res => {
-					
-					let flickrFeed = res.flickrFeed.items.map(item => {
-
-						var contract:IFlickrApiItemContract = item;
-						// @todo - check if contract is valid using json schema 
-						var model:FlickrPhoto = new FlickrPhoto(contract);
-						return model;
-
-					});
-					return flickrFeed;
+				map(book => {
+					console.log('Book --->', book);
+					return book;
 				})
 			)
-	}
-	*/
-	getAll(): Observable<BookModel[]>{
-		return Observable.create(obs =>{
 
-			let books = [
-				new BookModel('title', BookCategory.COMEDY, 'desc', 1)
-			]
-
-			obs.next(books);
-			obs.complete();
-		})
 	}
 
 
-	
+	/**
+	* Create Book 
+	*
+	* @todo 
+	*
+	* @param {BookModel} book model to create 
+	* @returns {Observable} an observable with an array of success or fail response
+	**/
+	create(book:BookModel): Observable<any>{
+		console.log('book.toJson()', book.toJson());
+		return this.http.post<BookApiCreateContract>(            
+				this.apiUrl,
+				book.toJson(), 
+            	{ headers : this.headers }
+			).pipe(
+				map(book => {
+					console.log('Book --->', book);
+					return book;
+				})
+			)
+
+	}
 
 }

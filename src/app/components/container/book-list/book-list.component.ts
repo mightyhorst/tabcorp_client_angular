@@ -17,10 +17,28 @@ export class BookListComponent implements OnInit {
 
 	/**
 	*
+	* Layout 
+	*
+	**/
+	layout = {
+		title: 'Book List',
+		imgSrc: 'https://img.icons8.com/ios/50/000000/book-shelf.png',
+		crumbs: [
+			{  
+				path: '/book',
+				title: 'Books'
+			}
+		]
+	}
+
+	/**
+	*
 	* Interface  
 	*
 	**/
 	@Input() bookModels:BookModel[];
+	bookLength:number;
+	
 
 	constructor(private bookService:BookApiService) { }
 
@@ -43,7 +61,10 @@ export class BookListComponent implements OnInit {
 	getBooks(): void{
 		this.bookService
 			.getAll()
-			.subscribe(bookModels => this.bookModels = bookModels);
+			.subscribe(bookModels => {
+				this.bookModels = bookModels;
+				this.bookLength = bookModels.length;
+			});
 	}
 
 }

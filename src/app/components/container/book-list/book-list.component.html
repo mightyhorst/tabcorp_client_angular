@@ -1,6 +1,83 @@
-<p>
-  book-list works!
-</p>
-<pre>
-	{{bookModels | json}}
-</pre>
+<layout-header
+	[title]="layout.title"
+	[imgSrc]="layout.imgSrc"
+	[crumbs]="layout.crumbs"></layout-header> 
+
+
+<section id="book-list">
+	<h1>
+		Book List 
+		<span class="count">({{bookLength}})</span>
+	</h1>
+	
+	<div class="book-list-container">
+
+		<!-- 
+		*
+		* Each Book 
+		*
+		* -->
+		<div class="book"
+			*ngFor="let book of bookModels">
+
+			<!-- 
+			*
+			* Icon
+			*
+			* -->
+			<div class="icon">
+				<img src="/assets/img/book.svg">
+			</div>
+
+			<!-- 
+			*
+			* Meta 
+			*
+			* -->
+			<div class="meta">
+				<div class="title">
+
+					<!-- 
+					*
+					* Title
+					*
+					* -->
+					<label class="lblTitle">
+						Title:
+					</label>
+
+					<input 
+						class="txtTitle" 
+						[value]="book.title" 
+						disabled="" />
+
+					<!-- 
+					*
+					* category
+					*
+					* -->
+					<span class="category">
+						({{book.category}})
+					</span>
+				</div>
+
+				<!-- 
+				*
+				* Description
+				*
+				* -->
+				<div class="desc">
+
+					<label  class="lblDescription">
+						Description:
+					</label>
+
+					<textarea 
+						class="txtDesc" 
+						disabled="">{{book.description}}</textarea>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>

@@ -4,7 +4,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 
 /**
 * Config
@@ -12,29 +12,19 @@ import { HttpClientModule }    from '@angular/common/http';
 import {environment} from '@env';
 import {ValidationError} from '@config/Errors';
 
-/*try{
-    throw new ValidationError("Validation error message");
-}
-catch(error){
-    if(error instanceof ValidationError){
-       console.log('Validation error: '+error.message);
-    }
-    else{
-        console.log('NOT a Validation error');
-    }
-}*/
+/**
+* Import interceptors 
+**/ 
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RequestCacheInterceptor } from './interceptors/request-cache.interceptor';
 
 /**
-*
 * Routes
-*
 **/
 import { AppRoutingModule }     from './app-routing.module';
 
 /**
-*
 * Components
-* 
 **/
 import { AppComponent } from '@components/app.component';
 import { LayoutHeaderComponent } from './layout/layout-header/layout-header.component';
@@ -55,26 +45,20 @@ import { ProfileComponent } from '@components/auth/profile/profile.component';
 **/
 
 /**
-*
 * Components
 * Book Pages 
-* 
 **/
 import { BookListComponent } from './components/container/book-list/book-list.component';
 import { BookCreateComponent } from './components/container/book-create/book-create.component';
 
 /**
-*
 * Services
-*
 **/
 import { BookApiService }  from '@services/book-api/book-api.service';
 
 
 /**
-*
 * Factories
-*
 **/
 // import { FavouritesFactory } from './models/factories/{TODO}Factory';
 // import { PhotoCache } from './models/factories/{TODO}Cache';
@@ -82,9 +66,7 @@ import { BookApiService }  from '@services/book-api/book-api.service';
 
 
 /**
-*
 * Pipes
-*
 **/
 import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 
@@ -145,6 +127,23 @@ import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
         * Cache
         **/
         // {name}Cache
+
+        /**@todo
+        * Interceptors
+        **/
+        /*{
+            provide : HTTP_INTERCEPTORS,
+            useClass : RequestCacheInterceptor,
+            multi : true
+        }*/
+        /*
+        {
+            provide : HTTP_INTERCEPTORS,
+            useClass : AuthInterceptor,
+            multi : true
+        },
+        */
+        
     ],
     bootstrap: [AppComponent]
 })

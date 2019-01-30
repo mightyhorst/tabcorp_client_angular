@@ -4,7 +4,7 @@
 
 export const environment = {
 	production: false,
-	apiUrl: 'https://l70217a84b.execute-api.ap-southeast-2.amazonaws.com/staging/',
+	apiUrl: 'http://localhost:10010/',
 	searchTimeout: 300,
 	storageStrategy: 'cache'
 };

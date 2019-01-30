@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators }  from '@angular/forms';
+import {Router} from "@angular/router"
+
 
 import { BookCategory, BookModel } from '@models/book.model';
+import { BookContract } from '@contracts/book.contract';
+import { BookApiService } from '@services/book-api/book-api.service';
 
 @Component({
 	selector: 'book-create',
@@ -17,7 +21,7 @@ export class BookCreateComponent implements OnInit {
 	**/
 	layout = {
 		title: 'Add Book',
-		imgSrc: '/assets/img/flickr.png',
+		imgSrc: 'https://img.icons8.com/ios/50/000000/read.png',
 		crumbs: [
 			{  
 				path: '/book',
@@ -55,13 +59,7 @@ export class BookCreateComponent implements OnInit {
 	* Lifecycle 
 	*
 	**/
-	constructor(private formBuilder: FormBuilder) { 
-		console.log('\n\n\n\n');
-		console.log('BookCategory', BookCategory)
-		console.log('Object.keys(BookCategory)', Object.keys(BookCategory) );
-		console.log('\n\n\n\n');
-		// this.listOfCats = Object.keys(BookCategory);
-		// console.log('\n\n\n\nthis.listOfCats', this.listOfCats)
+	constructor(private formBuilder: FormBuilder, private bookApi: BookApiService, private router: Router) { 
 		this.listOfCats = BookCategory.keys();
 	}
 
@@ -69,7 +67,6 @@ export class BookCreateComponent implements OnInit {
 	    this.createBookForm = this.formBuilder.group({
 			title: ['', Validators.required],
 			category: [BookCategory.NONE, Validators.required],
-			// category: ['', Validators.required],
 			description: ['', [Validators.required]],
 	    });
 	}
@@ -90,12 +87,21 @@ export class BookCreateComponent implements OnInit {
 	onSubmit() {
 	    this.submitted = true;
 
-	    // stop here if form is invalid
+	    // -- stop here if form is invalid
 	    if (this.createBookForm.invalid) {
 			return;
 	    }
 
-	    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.createBookForm.value))
+	    let bookData:BookContract = this.createBookForm.value;
+	    let bookModel = new BookModel(bookData.title, bookData.category, bookData.description);
+
+	    this.bookApi.create(bookModel)
+	    	.subscribe(bookRes => {
+	    		console.log(bookRes);
+	    		alert('Success! ');
+	    		this.router.navigate(['/book'])
+	    	});
+
 	}
 
 }

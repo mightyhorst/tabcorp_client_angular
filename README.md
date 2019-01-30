@@ -96,7 +96,7 @@ Reverse Proxy available [online here](http://traefik.tabcorp.kitset.io/dashboard
 | -------- | ---------- | ----------- |
 | `Test` | @todo | we need to deploy to a test environment online before we can run the integration tests. If these pass then the *master* branch will be deployed to the staging environment.  |
 | `Staging` | @todo | The *master* branch will be deployed to the *staging* environment after all tests pass on the *test* environment.  |
-| `Production` | @todo | The *production* branch will be deployed to the *production* environment after all tests pass on the *test* environment. This is not setup for our simple example |
+| `Production` | live | The *production* branch will be deployed to the *production* environment after all tests pass on the *test* environment. This is not setup for our simple example |
 
 
 

@@ -4,7 +4,7 @@
 * 
 **/
 export enum BookCategory{
-	NONE = '', 
+	NONE = '',
 	DRAMA = 'Drama',
 	COMEDY = 'Comedy',
 	SPORT = 'Sport'
@@ -13,7 +13,7 @@ export enum BookCategory{
 export namespace BookCategory {
     export function keys() {
     	return [
-    		'',
+    		'', 
     		'Drama',
     		'Comedy',
     		'Sport'
@@ -40,6 +40,15 @@ export class BookModel{
 		this.id = id ? id : null;
 	}
 	isValid(){
-
+		
+	}
+	toJson(){
+		var json = {
+			title: this.title,
+			category: this.category,
+			description: this.description
+		}
+		if(this.id !== null) json.id = this.id;
+		return json; 
 	}
 }

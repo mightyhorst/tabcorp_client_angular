@@ -59,6 +59,7 @@
 		border-bottom: 1px solid rgba(255,255,255,.02);
 		text-align: center;
 		background: rgba(3, 75, 132, 0.35);
+		background: rgba(3, 132, 98, 0.35);
 		justify-content: center;
 		flex-direction: column;
 		align-items: center;
@@ -67,7 +68,7 @@
 	a.logo > img{
 		display: block;
 	    height: 60px;
-	    width: 60px;
+	    /*width: 60px;*/
 	}
 	a.logo > h1{
 		height: 75px;

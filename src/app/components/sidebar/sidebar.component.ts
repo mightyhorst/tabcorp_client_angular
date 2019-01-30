@@ -15,15 +15,15 @@ export class SidebarComponent implements OnInit {
 	sidebarItems: SidebarItem[] = [
 		{
 			title: 'All Books',
-			imgSrc: '/assets/img/stag_lines_w.png',
+			imgSrc: '/assets/img/book.svg',
 			path: '/book',
 			icon: 'fa fa-chevron-right', 
 			isSelected: true
 		},
 		{
 			title: 'Add a Book',
-			imgSrc: '/assets/img/dragon_lines_w.png',
-			path: '/photo/search',
+			imgSrc: '/assets/img/book2.svg',
+			path: '/book/create',
 			icon: 'fa fa-chevron-right'
 		}
 	];

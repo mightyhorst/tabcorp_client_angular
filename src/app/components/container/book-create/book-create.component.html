@@ -6,6 +6,9 @@
 
 <section id="book-create">
 
+    <h1>
+        Add Book
+    </h1>
     <form [formGroup]="createBookForm" 
     	(ngSubmit)="onSubmit()">
         
@@ -106,7 +109,7 @@
             <button [disabled]="!createBookForm.valid">
 
             	<span *ngIf="createBookForm.valid"> 
-            		Add Book 
+            		Add 
             	</span>
             	<span *ngIf="!createBookForm.valid">  
             		Please fill in the form 
