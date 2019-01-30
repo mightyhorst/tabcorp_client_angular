@@ -7,17 +7,14 @@
 <!-- * [Backend Repo](https://github.com/mitni455/tabcorp_microservice_flickr) -->
 
 # Screenshots
-##### Search Page 
-Search by Tag 
-![Search Page Screenshot](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ss_tags2.png)
+##### Books list page
+List all Books page 
+![Books list Screenshot](https://i.ibb.co/SRbXs7j/Screen-Shot-2019-01-30-at-10-47-07-PM.png)
 
-##### Favourites Page 
-Save your favourites to a pin board
-![Favourites Screenshot](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ss_favs.png)
 
-##### Details Page 
-This is far from finished, it should show the authour details too
-![Favourites Screenshot](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ss_details3.png)
+##### Add a Book Page 
+Add a book 
+![Create Screenshot](https://i.ibb.co/d4MQRnk/Screen-Shot-2019-01-30-at-10-47-48-PM.png)
 
 
 # Quick Start 
@@ -63,7 +60,7 @@ Also pictured is the backend architecture, available at this [repo](https://gith
 | `MySQL` | Simple Database   |
 
 
-#### Alternative - AWS Architecture 
+#### @todo - Alternative - AWS Architecture 
 Alternatively I would use this stack on AWS 
 
 | Platform | Description |
