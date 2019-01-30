@@ -22,6 +22,7 @@
         "@components/*": ["src/app/components/*"],
         "@layout/*": ["src/app/layout/*"],
         "@models/*": ["src/app/models/*"],
+        "@contracts/*": ["src/app/models/contracts/*"],
         "@services/*": ["src/app/services/*"],
         "@env": ["src/environments/environment.ts"],
         "@config/*": ["src/app/config/*"],

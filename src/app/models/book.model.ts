@@ -30,10 +30,14 @@ export namespace BookCategory {
 export class BookModel{
 	id?: number;
 	title:string; 
-	category:BookCategory; 
+	/*@todo - change to enum 
+	category:BookCategory; */
+	category:string; 
 	description:string;
 
-	constructor(title:string, category:BookCategory, description:string, id?:number){
+	/*@todo - change to enum
+	constructor(title:string, category:BookCategory, description:string, id?:number){*/
+	constructor(title:string, category:string, description:string, id?:number){
 		this.title = title;
 		this.category = category;
 		this.description = description;
@@ -48,7 +52,7 @@ export class BookModel{
 			category: this.category,
 			description: this.description
 		}
-		if(this.id !== null) json.id = this.id;
+		if(this.id !== null) json['id'] = this.id;
 		return json; 
 	}
 }

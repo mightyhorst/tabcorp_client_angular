@@ -45,16 +45,16 @@ export class BookApiService {
 	* @todo 
 	*
 	* @param {} searchTerms? optional - tags to narrow the search 
-	* @returns {Observable<FlickrPhoto[]>} an observable with an array of FlickrPhotos
+	* @returns {Observable} an observable with an array of Books
 	**/
 	getAll(): Observable<BookModel[]>{
 
-		return this.http.get<BookApiGetAllContract>(            
+		return this.http.get<BookModel[]>(            
 				this.apiUrl, 
             	{ headers : this.headers }
 			).pipe(
 				map(book => {
-					console.log('Book --->', book);
+					/*@todo map to BookModel*/
 					return book;
 				})
 			)
@@ -71,7 +71,7 @@ export class BookApiService {
 	* @returns {Observable} an observable with an array of success or fail response
 	**/
 	create(book:BookModel): Observable<any>{
-		console.log('book.toJson()', book.toJson());
+		console.log('book.toJson()', book.toJson())
 		return this.http.post<BookApiCreateContract>(            
 				this.apiUrl,
 				book.toJson(), 
