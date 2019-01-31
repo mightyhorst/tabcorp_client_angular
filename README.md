@@ -203,9 +203,8 @@ These epics can be further broken down into the following *user stories* by crea
 | Parent ID | UI Epic |
 | --------- | ------- | 
 | `Epic 1:`  | As a user, I want a Book list page |
-| `Epic 1:`  | As a user, I want a Book details page |
-| `Epic 2:`  | As a user, I want a search page |
-| `Epic 3:` | As a user, I want a favourites page |
+| `Epic 1:`  | As a user, I want to add a Book |
+
 
 
 
@@ -215,19 +214,19 @@ Following *BDD* we already have enough for some *e2e tests* using protractor:
 
 `As a user, I want a Book list page`  
 ```
-* Go to the home page at '/'
-* Expect to see 'Book Angular App'
-* Expect the 'All Photos' sidebar to be active 
+* Go to the home page at '/book'
+* Expect to see 'Book List'
+* Expect to see a list of Books
+ect 
 ```
 
 
 `As a user, I want to add a Book` 
 ```
-* Go to the details page at /flickr/{mockImageId}
-* Expect to see the title 'Mock Title'
-* Expect to see the image 
-* Expect to see the the authour 'Mock Authour'
-* Expect to see the image description 'Mock Description' 
+* Go to the add Book page at /book/create
+* Expect to see the title 
+* Expect to see the form 
+ect 
 ```
 
 
@@ -242,84 +241,8 @@ A `User Story` as issues
 | `Services` | * DI <br> * Observable subscribe <br> * Get set <br> * Integration test for API |
 
 
-<!-- # Components 
-`As a user, I want a Book list page`  
-* Book List component
-* Book Tile component
 
-###### BDD/TDD - Book List component
-```
-* should create the page
-* should show tiles for mock BookImages models 
-
-* Visual tests - should look good on mobile portrait 
-* Visual tests - should look good on mobile landscape
-* Visual tests - should look good on tablet portrait 
-* Visual tests - should look good on tablet landscape
-* Visual tests - should look good on laptop
-* Visual tests - should look good on desktop
-```
-
-###### BDD/TDD - Book Tile component
-``` 
-* should be created 
-* should show loading gif 
-* should show mock image 
-* should show mock title 
-* should hide the authour by deafult  
-* should show authour on hover 
-* should open the flickr details page on click 
-* should have favourite button 
-* favourite button should be off by default 
-* favourite button should be on when Book Image model is saved 
-
-* Visual tests - should look good on mobile portrait 
-* Visual tests - should look good on mobile landscape
-* Visual tests - should look good on tablet portrait 
-* Visual tests - should look good on tablet landscape
-* Visual tests - should look good on laptop
-* Visual tests - should look good on desktop
-```
-
-`As a user, I want a Book details page` 
-* Book details component
-
-
-###### BDD/TDD - Book details component
-```
-* should be created 
-* should show Image 
-* should show title 
-* should show authour 
-* should show description 
-* should show back button 
-
-* Visual tests - should look good on mobile portrait 
-* Visual tests - should look good on mobile landscape
-* Visual tests - should look good on tablet portrait 
-* Visual tests - should look good on tablet landscape
-* Visual tests - should look good on laptop
-* Visual tests - should look good on desktop
-```
-
-`As a user, I want a search page` 
-
-###### BDD/TDD - Search Page 
-```
-* should be created 
-* should have search bar 
-* should have no search tiles by default 
-* should show loading 
-* should show mock tiles for search term "mock" 
-
-* Visual tests - should look good on mobile portrait 
-* Visual tests - should look good on mobile landscape
-* Visual tests - should look good on tablet portrait 
-* Visual tests - should look good on tablet landscape
-* Visual tests - should look good on laptop
-* Visual tests - should look good on desktop
-```
-
+### Unit test examples 
 `As a user, I want a simple sidebar` 
 
 ###### BDD/TDD - Unit Tests
@@ -335,7 +258,7 @@ A `User Story` as issues
 * Visual tests - should look good on tablet landscape
 * Visual tests - should look good on laptop
 * Visual tests - should look good on desktop
-``` -->
+``` 
 
 
 
