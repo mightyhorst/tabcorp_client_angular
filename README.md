@@ -134,7 +134,7 @@ The integration tests are written in `mocha` available from the backend repo.
 # Tests - Frontend
 The front end tests are split into `e2e tests`, `unit tests` and `integration tests` using angular cli tool, jasmine and karma. 
 
-![jasmine tests](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/karma.png) 
+![jasmine tests](https://i.ibb.co/D8B0C74/Screen-Shot-2019-01-31-at-10-37-39-PM.png) 
 
 
 # Development Lifecycle
@@ -197,7 +197,6 @@ The *epics* for this sprint include:
 ### UX and UI 
 These epics can be further broken down into the following *user stories* by creating *wireframes* for the *UX (User Experience)*
 
-<!-- ![UX](https://mitni455.github.io/tabcorp-client-angular/images/ux.png)  -->
 ![UX](https://s3-ap-southeast-2.amazonaws.com/tabcorp.flickr.angular.assets/images/ux.png)
 
 
@@ -222,7 +221,7 @@ Following *BDD* we already have enough for some *e2e tests* using protractor:
 ```
 
 
-`As a user, I want a Book details page` 
+`As a user, I want to add a Book` 
 ```
 * Go to the details page at /flickr/{mockImageId}
 * Expect to see the title 'Mock Title'
@@ -231,19 +230,6 @@ Following *BDD* we already have enough for some *e2e tests* using protractor:
 * Expect to see the image description 'Mock Description' 
 ```
 
-`As a user, I want a search page` 
-```
-* Go to the search page at '/flickr/search'
-* Enter the search term 'mock term' to a list of mock images
-* Expect the 'Search' sidebar to be active 
-```
-
-`As a user, I want a simple sidebar` 
-```
-* Expect to see a sidebar with the 'All Images'
-* Expect to see a sidebar with the 'Search'
-* Expect to see a sidebar with the anchor 'Favourites' 
-```
 
 
 ### User Stories 
@@ -254,13 +240,9 @@ A `User Story` as issues
 | `Components` | *DI <br> *Elements on Dom <br> * HTML for Mock Model <br> *Inputs() <br> *Outputs() <br> *Events triggered <br> *Events received <br> *Test for state: loading, success, warning, error <br> *Test lifecycle hooks <br> * BackstopJs CSS tests for responsive |
 | `Models` | * DI <br>  *Key /values set <br> * JSON Schema validation |
 | `Services` | * DI <br> * Observable subscribe <br> * Get set <br> * Integration test for API |
-<!-- 
-#| `` |  |
-#| `` |  |
-#| `` |  |
- -->
 
-# Components 
+
+<!-- # Components 
 `As a user, I want a Book list page`  
 * Book List component
 * Book Tile component
@@ -353,7 +335,7 @@ A `User Story` as issues
 * Visual tests - should look good on tablet landscape
 * Visual tests - should look good on laptop
 * Visual tests - should look good on desktop
-```
+``` -->
 
 
 

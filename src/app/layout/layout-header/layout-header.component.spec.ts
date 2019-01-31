@@ -1,57 +1,41 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { APP_BASE_HREF } from '@angular/common';
-
 /**
-*
-* Routes
-*
+* Deps
 **/
-import { AppRoutingModule }     from '../../app-routing.module';
 
 /**
-*
-* Components
-*
+* Test Helpers 
+**/
+import { Tester } from '../../tests/component.tester'; /*'@tests/component.tester'*/
+import { TestService } from '../../tests/test.service';
+
+/**
+* Component
 **/
 import { LayoutHeaderComponent } from './layout-header.component';
-import { FlickrListComponent } from '../../components/container/flickr-list/flickr-list.component';
-import { FlickrSearchComponent } from '../../components/container/flickr-search/flickr-search.component';
-import { FlickrFavouritesComponent } from '../../components/container/flickr-favourites/flickr-favourites.component';
-import { FlickrDetailsComponent } from '../../components/container/flickr-details/flickr-details.component';
-import { FlickrTileComponent } from '../../components/container/flickr-list/flickr-tile/flickr-tile.component';
 
-describe('LayoutHeaderComponent', () => {
-    let component: LayoutHeaderComponent;
-    let fixture: ComponentFixture<LayoutHeaderComponent>;
+/**
+* Test Suite 
+**/
+let tester = new Tester(LayoutHeaderComponent, []);
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [ 
-                LayoutHeaderComponent,
-                FlickrListComponent,
-                FlickrSearchComponent,
-                FlickrFavouritesComponent,
-                FlickrDetailsComponent,
-                FlickrTileComponent
-            ],
-            imports: [
-                AppRoutingModule
-            ],
-            providers: [
-                {provide: APP_BASE_HREF, useValue : '/' },
-            ]
-        })
-        .compileComponents();
-    }));
+tester.describe('LayoutHeaderComponent ')
+    .it('component')
+    .should('have been created')
+    .have((test, component)=>{
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(LayoutHeaderComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('should create', () => {
+        console.log(test);
         expect(component).toBeTruthy();
-    });
-});
+
+    })       
+    .it('component')
+    .should('have a title')
+    .have((test, component, dom)=>{
+
+        console.log(test);
+
+       expect(component.title).toBeTruthy();
+       expect(component.title).toEqual('Welcome');
+       expect(dom.textContent.trim()).toEqual('Dashboard  Welcome');
+
+    })
+    .run();    

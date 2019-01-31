@@ -23,6 +23,7 @@ import { By } from '@angular/platform-browser'
 **/
 import { BookListComponent } from './book-list.component';
 import { BookModel, BookCategory } from '@models/book.model';
+import { BookApiService } from '@services/book-api/book-api.service';
 
 /**
 *
@@ -41,7 +42,13 @@ class MockBookApiService{
             obs.next(books);
             obs.complete(); 
         });
-    }
+    },
+    getBooks():Observable<BookModel[]>{
+        return Observable.create((obs) => { 
+            obs.next(books);
+            obs.complete(); 
+        });
+    },
 }
 
 describe('BookListComponent', () => {
@@ -57,17 +64,15 @@ describe('BookListComponent', () => {
                 BookListComponent 
             ],
             imports : [
-                // ReactiveFormsModule,
                 HttpClientTestingModule
             ],
             providers : [
-                // BookApiService,
                 { 
                     provide: BookApiService,    
                     useClass: MockBookApiService 
                 }
             ],
-            schema: [NO_ERRORS_SCHEMA]
+            schemas: [NO_ERRORS_SCHEMA]
         })
         .compileComponents();
     }));
@@ -82,19 +87,19 @@ describe('BookListComponent', () => {
 
     describe("Component variables", () => {
 
-        it ("Should have class variables", () => {
+        it ("Should have book models", () => {
 
             expect(component.bookModels).toBeTruthy();
             expect(component.bookModels.length).toEqual(books.length);
             component.bookModels.forEach((book, index) => {
-                book.toEqual(books[index]);
+                expect(book).toEqual(books[index]);
             })
 
         });
 
     })
 
-    describe("HTML", () => {
+    describe("Book List HTML", () => {
         it('should create component', () => {
             expect(component).toBeTruthy();
         });
@@ -102,9 +107,9 @@ describe('BookListComponent', () => {
         
 
         it ('should have a table of Book Items', () => {
-            var findEl = nativeEl.query(By.css('form input[name="getPostId"]');
-            expect(findEl).toBeTruthy();
-            expect(findEl.type).toBe("number");
+            var el = fixture.debugElement.query(By.css('.book:nth-of-type(1)'));
+            expect(el).toBeTruthy();
+            expect(''+el.nativeElement.classList).toBe("book");
         });
 
        
@@ -113,34 +118,35 @@ describe('BookListComponent', () => {
 
 
     describe("Book List Component should call service functions", () => {
-        it ("Should call getAll from Books list service", () => {
-
+        
+        it ("Should call getBooks from Books list service", () => {
+            
             spyOn(bookListService, 'getAll').and.callFake((id) => {
+
                 return Observable.create((obs) => { 
-                    // -- This should be called
-                    expect(true).toBeTruthy();
-                    expect(id).toBe(undefined);
+                    obs.next(books);
                     obs.complete(); 
                 });
-            });
+                
+            }); 
 
-            component.getAll();
+            component.getBooks();
+            expect(bookListService.getAll).toHaveBeenCalled();
         });
+
+        it('Should return books list', ()=>{
+
+            component.getBooks()
+            component.bookModels.forEach((book, i) =>{
+                expect(book.title).toEqual(books[i].title);
+                expect(book.category).toEqual(books[i].category);
+                expect(book.description).toEqual(books[i].description);
+            })
+            expect(component.bookLength).toEqual(books.length);
+
+        })
 
     });
 
 
-
-    describe("HTML with functionality", () => {
-
-        it ("Should update the component.getPostForm id when the numberInput form element is updated", () => {
-            var idInputElement = nativeEl.query(By.css('cssquery'));
-            idInputElement.value = 10;
-            idInputElement.dispatchEvent(new Event('input'));
-            expect(component.getPostForm.value.id).toBe(10);
-        });
-
-        it ("Should load posts into the result output when the Get Post button is clicked");
-
-    });
 });

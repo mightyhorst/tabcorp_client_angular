@@ -12,6 +12,14 @@ import { environment } from '@env';
 
 /**
 *
+* Services
+*
+**/
+import { HttpErrorHandler, HandleError } from '@services/http-error-handler.service';
+import { MessageService } from '@services/message.service';
+
+/**
+*
 * Models 
 *
 **/
@@ -21,11 +29,13 @@ import { BookContract, BookApiGetAllContract, BookApiCreateContract} from '@cont
 @Injectable()
 export class BookApiService {
 
-	private apiUrl : string = `${environment.apiUrl}book/`;
+	/**@todo public for the test**/
+	public apiUrl : string = `${environment.apiUrl}book/`;
     private headers : HttpHeaders;
+    private handleError: HandleError;
     private queryParams : any;
 
-	constructor(private http: HttpClient) { 
+	constructor(private http: HttpClient, private httpErrorHandler: HttpErrorHandler) { 
 		if (isDevMode()) {
 	      	console.log('👋 Development!');
 	      	console.log('😀 apiUrl: '+this.apiUrl);
@@ -33,11 +43,19 @@ export class BookApiService {
 	      	console.log('💪 Production!');
 	    }
 	    
-
+	    /*
+	    * Headers 
+	    * @todo - add injectors instead 
+	    */
 	    this.headers = new HttpHeaders({
             'Accept': 'application/json',
             'Content-Type': 'application/json',                
         });
+
+	    /*
+	    * Headers 
+	    */
+        this.handleError = httpErrorHandler.createHandleError('BookApiService');
 	}
 
 	/**
@@ -57,7 +75,8 @@ export class BookApiService {
 				map(book => {
 					/*@todo map to BookModel*/
 					return book;
-				})
+				}),
+				catchError(this.handleError('getAll', []))
 			)
 
 	}
@@ -81,7 +100,8 @@ export class BookApiService {
 				map(book => {
 					console.log('Book --->', book);
 					return book;
-				})
+				}),
+				catchError(this.handleError('create', []))
 			)
 
 	}

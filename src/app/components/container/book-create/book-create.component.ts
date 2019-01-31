@@ -93,15 +93,21 @@ export class BookCreateComponent implements OnInit {
 	    }
 
 	    let bookData:BookContract = this.createBookForm.value;
-	    let bookModel = new BookModel(bookData.title, bookData.category, bookData.description);
+	    
 
-	    this.bookApi.create(bookModel)
-	    	.subscribe(bookRes => {
-	    		console.log(bookRes);
-	    		alert('Success! ');
-	    		this.router.navigate(['/book'])
-	    	});
+	    this.create(bookData);
 
+	}
+	create(bookData:BookContract){
+
+		let bookModel = new BookModel(bookData.title, bookData.category, bookData.description);
+		
+		this.bookApi.create(bookModel)
+			.subscribe(bookRes => {
+				console.log(bookRes);
+				alert('Success! ');
+				this.router.navigate(['/book'])
+			});
 	}
 
 }
