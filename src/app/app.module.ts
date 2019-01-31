@@ -55,6 +55,8 @@ import { BookCreateComponent } from './components/container/book-create/book-cre
 * Services
 **/
 import { BookApiService }  from '@services/book-api/book-api.service';
+import { HttpErrorHandler }  from '@services/http-error-handler.service';
+import { MessageService }  from '@services/message.service';
 
 
 /**
@@ -117,6 +119,8 @@ import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
         * Services
         **/
         BookApiService,
+        HttpErrorHandler,
+        MessageService,
 
         /**@todo
         * Factories
