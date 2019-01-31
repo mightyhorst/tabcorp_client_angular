@@ -44,7 +44,8 @@ Also pictured is the backend architecture, available at this [repo](https://gith
 | Application | Description |
 | -------- | ----------- |
 | `Angular6` | *Angular6* is used as the simple SPA framework.  |
-| `ExpressJs` | The app is served by *ExpressJs*. We could also use this as a simple resourceful API too, however we have chosen to use microservices on *Lambda*   |
+| `ExpressJs` | The app is served by *ExpressJs*.    |
+| `nginx` | @todo I usually use nginx to load balance and reverse proxy (behind traefik)  |
 | `Docker` | *Docker* is probably overkill here, but is used as a simple container to quickly setup the Angular/Express app on all environments (dev/test/staging)  |
 
 
