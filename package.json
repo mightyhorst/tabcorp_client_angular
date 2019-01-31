@@ -3,8 +3,9 @@
   "version": "1.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --prod && node bin/www",
+    "start": "node bin/www && npm serve",
     "build": "ng build --prod",
+    "serve": "ng serve --prod --host 0.0.0.0 --poll=500",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
